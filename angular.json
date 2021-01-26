@@ -24,9 +24,23 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "node_modules/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css",
+              "src/css/components-rounded.css",
+              "src/plugins/css/plugins.css",
+              "src/plugins/jquery-ui/jquery-ui.min.css",
+              "src/css/layout-vertical.css",
+              "src/css/custom-vertical.css",
+              "src/css/about.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/popper.js/dist/umd/popper.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js",
+              "node_modules/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js",
+              "src/plugins/bootstrap-switch/js/bootstrap-switch.min.js"
+            ]
           },
           "configurations": {
             "production": {

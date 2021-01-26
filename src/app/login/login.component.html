@@ -1,0 +1,60 @@
+<ngx-loading [show]="loading"></ngx-loading>
+<div class="wrapper portlet light bordered">
+  <div id="formContent">
+    <div class="portlet-title">
+      <div class="caption padding-tb-20">
+        <span class="caption-subject font-purple bold uppercase">Login</span><br>
+        <span class="caption-helper"> Já tem uma conta? Basta logar!</span>
+      </div>
+    </div>
+
+    <div class="portlet-body form">
+      <form class="horizontal-form">
+        <div class="form-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div [ngClass]="{'has-error': emailInvalido, 'form-group': !emailInvalido}">
+                <input type="text" name="login" placeholder="login" class="form-control" [(ngModel)]="email"
+                       (ngModelChange)="emailInvalido = false; mensagemErro = ''" (keydown.enter)="enterInputLogin()">
+                <h6 *ngIf="emailInvalido" class="font-red no-margin">{{mensagemErro}}</h6>
+              </div>
+              <div [ngClass]="{'has-error': senhaInvalida, 'form-group': !senhaInvalida}">
+                <div class="col-md-12">
+                  <div class="input-icon right col-md-11">
+                    <i *ngIf="!mostraSenha" class="fa fa-eye-slash" (click)="mostraSenha = !mostraSenha"></i>
+                    <i *ngIf="mostraSenha" class="fa fa-eye" (click)="mostraSenha = !mostraSenha"></i>
+                    <input *ngIf="!mostraSenha" type="password" name="password" placeholder="senha" class="form-control"
+                           [(ngModel)]="senha" (ngModelChange)="senhaInvalida = false; mensagemErro = ''"
+                           (keydown.enter)="enterInputSenha()">
+                    <input *ngIf="mostraSenha" type="text" name="password" placeholder="senha" class="form-control"
+                           [(ngModel)]="senha" (ngModelChange)="senhaInvalida = false; mensagemErro = ''"
+                           (keydown.enter)="enterInputSenha()">
+                    <h6 *ngIf="senhaInvalida && mensagemErro" class="font-red no-margin">{{mensagemErro}}</h6>
+                  </div>
+                  <div class="col-md-1">
+                    <input type="checkbox" [checked]="lembrarLogin" (change)="lembrarLogin = !lembrarLogin">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <button type="button" class="btn dark btn-outline purple margin-right-10" (click)="logar()">Login
+                  </button>
+                  <button type="button" class="btn dark btn-outline purple margin-left-10"
+                          [routerLink]="['/cadastro-usuario']">Cadastre-se
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Esqueceu sua senha?</a>
+    </div>
+
+  </div>
+</div>

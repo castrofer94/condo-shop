@@ -1,0 +1,18 @@
+<div id="cabecalho" *ngIf="authService.usuario">
+  <div class="content">
+    <header>
+      <div class="logo" [routerLink]="['./home']">
+        <h2><b class="font-purple">condo</b><b class="font-dark">shop</b></h2>
+        <h6 class="font-white">Venda para os seus vizinhos em um marketplace local</h6>
+      </div>
+      <a>Meus Anúncios</a>
+      <a>Minhas Compras</a>
+      <a>Vender Algo</a>
+      <img id="carrinho" src="https://img.icons8.com/plasticine/100/000000/shopping-cart.png" alt="Carrinho">
+      <div id="user" [routerLink]="['./perfil']">
+        <h5>{{authService.usuario.nome}}</h5>
+        <img src="https://img.icons8.com/ultraviolet/40/000000/user-male-3.png" alt="User">
+      </div>
+    </header>
+  </div>
+</div>

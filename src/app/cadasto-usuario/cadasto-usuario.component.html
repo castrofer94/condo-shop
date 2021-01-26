@@ -1,0 +1,87 @@
+<ngx-loading [show]="loading"></ngx-loading>
+<div class="portlet light bordered">
+  <div class="portlet-title">
+    <div class="caption">
+      <i class="icon-settings font-dark"></i>
+      <span class="caption-subject font-purple bold uppercase">Cadastro de Usuário</span>
+      <span class="caption-helper"> Preencha todos os campos antes de prosseguir</span>
+    </div>
+  </div>
+  <div class="portlet-body form">
+    <form class="horizontal-form">
+      <div class="form-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="col-md-12">
+              <div class="no-margin col-md-6">
+                <div class="form-group">
+                  <label class="control-label">Nome completo</label>
+                  <input type="text" name="model.nome" class="form-control" placeholder="Seu nome"
+                         [(ngModel)]="model.nome"/>
+                </div>
+              </div>
+              <div class="no-margin col-md-6">
+                <div class="form-group">
+                  <label class="control-label">email</label>
+                  <div
+                    [ngClass]="{'has-error': (email === false), 'has-success': (email === true), '':(email === undefined)}">
+                    <div class="input-icon right">
+                      <i *ngIf="email === false" class="fa fa-warning"></i>
+                      <i *ngIf="email" class="fa fa-check"></i>
+                      <i *ngIf="loadingEmail === true" class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                      <input type="email" name="model.email" class="form-control" placeholder="Seu melhor email"
+                             [(ngModel)]="model.email" (focusout)="verificaDispEmail()"
+                             (ngModelChange)="email = undefined"/>
+                      <h6 *ngIf="email === false && statusEmail" class="font-red no-margin">{{statusEmail}}</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label">Senha</label>
+                  <input type="password" name="model.senha" class="form-control" placeholder="Defina uma senha"
+                         [(ngModel)]="model.senha" (ngModelChange)="senhaConfirmada = undefined" (focusout)="confirmarSenha()"/>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label">Confirme sua senha</label>
+                  <div
+                    [ngClass]="{'has-error': (senhaConfirmada === false), 'has-success': (senhaConfirmada === true), '':(senhaConfirmada === undefined)}">
+                    <div class="input-icon right">
+                      <i *ngIf="senhaConfirmada === false" class="fa fa-warning"></i>
+                      <i *ngIf="senhaConfirmada" class="fa fa-check"></i>
+                      <input type="password" name="confirmaSenha" class="form-control"
+                             placeholder="Confirme sua senha aqui"
+                             [(ngModel)]="confirmaSenha" (ngModelChange)="confirmarSenha()"/>
+                      <h6 *ngIf="senhaConfirmada === false" class="font-red no-margin">O campo 'confirmar senha' deve ser igual a sua senha</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label">Telefone</label>
+                  <input type="text" name="model.telefone" class="form-control"
+                         placeholder="Informe seu telefone para contato"
+                         [(ngModel)]="model.telefone" mask="(00)00000-0000"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-actions">
+        <div class="pull-right btn-group">
+          <button type="button" class="btn purple" (click)="salvarUsuario()">Salvar</button>
+          <button type="button" class="btn default" [routerLink]="['/login']">Cancelar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<ngx-loading [show]="loading"></ngx-loading>
+<div class="portlet light bordered">
+  <div class="portlet-body form">
+    <form class="horizontal-form">
+      <div class="form-body">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="no-margin col-md-3">
+              <div class="form-group">
+                <select class="form-control" [(ngModel)]="uf" (ngModelChange)="carregaMunicipio()" name="uf">
+                  <option value="1">Selecionar UF</option>
+                  <option *ngFor="let uf of listaUf" value="{{uf.sigla}}">{{uf.sigla}} - {{uf.nome}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="no-margin col-md-3">
+              <div class="form-group">
+                <select class="form-control" [(ngModel)]="municipio" name="municipio"
+                        [disabled]="!listaMunicipio || listaMunicipio.length <= 0">
+                  <option value="1">Localização</option>
+                  <option *ngFor="let municipio of listaMunicipio"
+                          value="{{municipio.nome}}">{{municipio.nome}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="no-margin col-md-3">
+              <div class="form-group">
+                <select class="form-control">
+                  <option value="">Condominio</option>
+                </select>
+              </div>
+            </div>
+            <div class="no-margin col-md-3">
+              <div class="form-group">
+                <select class="form-control">
+                  <option value="">Categoria</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

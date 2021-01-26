@@ -1,0 +1,67 @@
+#cabecalho {
+  height: 15vh;
+  background-position: 35vw bottom;
+  padding: 0 40px;
+}
+
+#cabecalho img {
+  height: 50px;
+  width: 50px;
+}
+
+#cabecalho a {
+  margin: 10px 0 0 0;
+}
+
+#cabecalho .content {
+  width: 100%;
+  max-width: 1400px;
+  height: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#cabecalho header {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#cabecalho header #user {
+  height: 60px;
+  min-width: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding: 5px;
+}
+
+#cabecalho header #carrinho:hover,
+#cabecalho header #user:hover,
+#cabecalho header .logo:hover {
+  cursor: pointer;
+}
+
+#cabecalho header #venda {
+  height: 30px;
+  width: 110px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+#cabecalho header #venda a {
+  margin: 12px 0 0 0;
+}
+
+.logo {
+  height: 100px;
+  width: 315px;
+  background: #a0a0a0;
+  padding: 15px 10px;
+}
+
+.logo h2 {
+  margin: 10px 0 10px;
+}
